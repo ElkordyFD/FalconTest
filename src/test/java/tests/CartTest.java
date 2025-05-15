@@ -35,7 +35,7 @@ public class CartTest {
         driver.get("https://www.saucedemo.com/v1");
         loginPage.loginAs("standard_user", "secret_sauce");
 
-        productPage.clickAddToCart();
+        productPage.clickAddToCartAtProductPage();
         productPage.clickShopIcon();
     }
 

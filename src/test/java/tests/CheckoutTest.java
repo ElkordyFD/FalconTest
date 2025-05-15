@@ -31,7 +31,7 @@ public class CheckoutTest {
         driver.get("https://www.saucedemo.com/v1/"); // Adjust if different
         loginPage.loginAs("standard_user", "secret_sauce"); // Replace with your credentials
 
-        productPage.clickAddToCart();
+        productPage.clickAddToCartAtProductPage();
         productPage.clickShopIcon();
 
         driver.get("https://www.saucedemo.com/v1/checkout-step-one.html");
