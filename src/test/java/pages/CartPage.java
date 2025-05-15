@@ -1,11 +1,8 @@
 package pages;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-
-import java.util.List;
-import java.util.stream.Collectors;
 
 public class CartPage {
 
@@ -16,65 +13,95 @@ public class CartPage {
     }
 
     // Locators
-    private final By cartItem = By.className("cart_list");
-    private final By productQuantity = By.className("cart_quantity");
-    private final By productName = By.className("inventory_item_name");
-    private final By productDescription = By.className("inventory_item_desc");
-    private final By productPrice = By.className("inventory_item_price");
-    private final By removeButton = By.xpath("//*[@id=\"cart_contents_container\"]/div/div[1]/div[3]/div[2]/div[2]/button");  // scoped within item
-    private final By checkoutButton = By.xpath("//*[@id=\"cart_contents_container\"]/div/div[2]/a[2]");
-    private final By continueShoppingButton = By.xpath("//*[@id=\"cart_contents_container\"]/div/div[2]/a[1]");
+    private By product = By.className("cart_item");
+    private By productQuantity = By.className("cart_quantity");
+    private By productName = By.className("inventory_item_name");
+    private By productDescription = By.className("inventory_item_desc");
+    private By productPrice = By.className("inventory_item_price");
+    private By removeButton = By.xpath("//*[@id=\"cart_contents_container\"]/div/div[1]/div[3]/div[2]/div[2]/button");  // scoped within item
+    private By checkoutButton = By.xpath("//*[@id=\"cart_contents_container\"]/div/div[2]/a[2]");
+    private By continueShoppingButton = By.xpath("//*[@id=\"cart_contents_container\"]/div/div[2]/a[1]");
 
     // Footer social media links
     private By twitterIcon = By.className("social_twitter");
     private By facebookIcon = By.className("social_facebook");
     private By linkedinIcon = By.className("social_linkedin");
 
+    // Menu
+    private By menuButton = By.className("bm-burger-button"); // Menu button to open sidebar
+    private By sideBar = By.className("bm-menu");
+    private By allItemsLink = By.id("inventory_sidebar_link");
+    private By aboutLink = By.id("about_sidebar_link");
+    private By logoutLink = By.id("logout_sidebar_link");
+    private By resetAppStateLink = By.id("reset_sidebar_link");
+    private By closedButton = By.className("bm-cross-button");
 
+    // Product Info
     public String getProductName() {
         return driver.findElement(productName).getText();
     }
-
-    // Get product quantity
     public String getProductQuantity() {
         return driver.findElement(productQuantity).getText();
     }
-
-    // Get product description
     public String getProductDescription() {
         return driver.findElement(productDescription).getText();
     }
-
-    // Get product price (with dollar currency)
     public String getProductPrice() {
         return driver.findElement(productPrice).getText();
     }
-
-    // Click the Remove button
     public void clickRemoveButton() {
-        driver.findElement(cartItem).findElement(removeButton).click();
+        driver.findElement(product).findElement(removeButton).click();
+    }
+    public boolean isProductRemovedFromCart() {
+        try {
+            return !driver.findElement(product).isDisplayed(); // true = removed
+        } catch (NoSuchElementException e) {
+            return true; // If not found at all, assume it was removed
+        }
     }
 
-    // Click the Checkout button
+
+    // Buttons
     public void clickCheckout() {
         driver.findElement(checkoutButton).click();
     }
-
-    // Click the Continue Shopping button
     public void clickContinueShopping() {
         driver.findElement(continueShoppingButton).click();
     }
 
+
+    // Footer Icons'
     public void clickTwitterIcon() {
         driver.findElement(twitterIcon).click();
     }
-
     public void clickFacebookIcon() {
         driver.findElement(facebookIcon).click();
     }
-
     public void clickLinkedInIcon() {
         driver.findElement(linkedinIcon).click();
     }
 
+
+    // Menu
+    public void clickOnMenuButton() {
+        driver.findElement(menuButton).click();
+    }
+    public boolean isMenuSideBarDisplayed() {
+        return driver.findElement(sideBar).isDisplayed();
+    }
+    public void clickOnAllItemsLink() {
+        driver.findElement(allItemsLink).click();
+    }
+    public void clickOnAboutLink() {
+        driver.findElement(aboutLink).click();
+    }
+    public void clickOnLogoutLink() {
+        driver.findElement(logoutLink).click();
+    }
+    public void clickOnResetAppState() {
+        driver.findElement(resetAppStateLink).click();
+    }
+    public void closeMenu() {
+        driver.findElement(closedButton).click();
+    }
 }

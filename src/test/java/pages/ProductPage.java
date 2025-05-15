@@ -3,14 +3,12 @@ package pages;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class ProductPage {
 
     private WebDriver driver;
-    private WebDriverWait wait;
 
     // Menu
     private By menuButton = By.className("bm-burger-button"); // Menu button to open sidebar
