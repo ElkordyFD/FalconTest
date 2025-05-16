@@ -37,6 +37,7 @@ public class CartTest {
         productPage.clickShopIcon();
     }
 
+    // Product
     @Test(groups = "Product")
     public void testCartProductName() {
         Assert.assertEquals(cartPage.getProductName(), "Sauce Labs Backpack", "Product name mismatch");
@@ -87,7 +88,6 @@ public class CartTest {
         cartPage.clickLinkedInIcon();
         Assert.assertTrue(driver.getCurrentUrl().equals("https://www.linkedin.com/"), "Did not navigate to the LinkedIn page.");
     }
-
 
     // Menu
     @Test(groups = "Menu")
