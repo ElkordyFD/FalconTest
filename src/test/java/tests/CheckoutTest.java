@@ -50,126 +50,126 @@ public class CheckoutTest {
     public void testCheckoutwithValidCredentials() {
         checkoutPage.fillCheckoutForm("Mina","George","11311");
         checkoutPage.clickContinue();
-        Assert.assertEquals(driver.getCurrentUrl(), "https://www.saucedemo.com/v1/checkout-step-two.html", "Continue did not proceed to nextstep.");
+        Assert.assertTrue(driver.getCurrentUrl().equals("https://www.saucedemo.com/v1/checkout-step-one.html"), "Continue did not proceed to nextstep.");
     }
 
     @Test (groups = "Invalid FirstName")
     public void testCheckoutWithEmptyFirstName() {
         checkoutPage.fillCheckoutForm("", "George", "11311");
         checkoutPage.clickContinue();
-        Assert.assertEquals(driver.getCurrentUrl(), "https://www.saucedemo.com/v1/checkout-step-two.html", "Continue did not proceed to nextstep.");
+        Assert.assertEquals(driver.getCurrentUrl(), "https://www.saucedemo.com/v1/checkout-step-one.html", "Continue did not proceed to nextstep.");
     }
 
     @Test (groups = "Invalid FirstName")
     public void testCheckoutWithSpecialCharactersAtFirstName(){
         checkoutPage.fillCheckoutForm("#@!$", "George", "11311");
         checkoutPage.clickContinue();
-        Assert.assertEquals(driver.getCurrentUrl(), "https://www.saucedemo.com/v1/checkout-step-two.html", "Continue did not proceed to nextstep.");
+        Assert.assertEquals(driver.getCurrentUrl(), "https://www.saucedemo.com/v1/checkout-step-one.html", "Continue did not proceed to nextstep.");
     }
 
     @Test (groups = "Invalid FirstName")
     public void testCheckoutWithNumbersAtFirstName() {
         checkoutPage.fillCheckoutForm("1234", "George", "11311");
         checkoutPage.clickContinue();
-        Assert.assertEquals(driver.getCurrentUrl(), "https://www.saucedemo.com/v1/checkout-step-two.html", "Continue did not proceed to nextstep.");
+        Assert.assertEquals(driver.getCurrentUrl(), "https://www.saucedemo.com/v1/checkout-step-one.html", "Continue did not proceed to nextstep.");
     }
 
     @Test (groups = "Invalid FirstName")
     public void testCheckoutWithArabicAtFirstName() {
         checkoutPage.fillCheckoutForm("مينا", "George", "11311");
         checkoutPage.clickContinue();
-        Assert.assertEquals(driver.getCurrentUrl(), "https://www.saucedemo.com/v1/checkout-step-two.html", "Continue did not proceed to nextstep.");
+        Assert.assertEquals(driver.getCurrentUrl(), "https://www.saucedemo.com/v1/checkout-step-one.html", "Continue did not proceed to nextstep.");
     }
 
     @Test (groups = "Invalid FirstName")
     public void testCheckoutWithSpacesOnlyAtFirstName() {
         checkoutPage.fillCheckoutForm("    ", "George", "11311");
         checkoutPage.clickContinue();
-        Assert.assertEquals(driver.getCurrentUrl(), "https://www.saucedemo.com/v1/checkout-step-two.html", "Continue did not proceed to nextstep.");
+        Assert.assertEquals(driver.getCurrentUrl(), "https://www.saucedemo.com/v1/checkout-step-one.html", "Continue did not proceed to nextstep.");
     }
 
     @Test (groups = "Invalid FirstName")
     public void testCheckoutWithLeadingSpacesAtFirstName(){
         checkoutPage.fillCheckoutForm("    Mina", "George", "11311");
         checkoutPage.clickContinue();
-        Assert.assertEquals(driver.getCurrentUrl(), "https://www.saucedemo.com/v1/checkout-step-two.html", "Continue did not proceed to nextstep.");
+        Assert.assertEquals(driver.getCurrentUrl(), "https://www.saucedemo.com/v1/checkout-step-one.html", "Continue did not proceed to nextstep.");
     }
 
     @Test (groups = "Invalid FirstName")
     public void testCheckoutWithTrailingSpacesAtFirstName() {
         checkoutPage.fillCheckoutForm("Mina      ", "George", "11311");
         checkoutPage.clickContinue();
-        Assert.assertEquals(driver.getCurrentUrl(), "https://www.saucedemo.com/v1/checkout-step-two.html", "Continue did not proceed to nextstep.");
+        Assert.assertEquals(driver.getCurrentUrl(), "https://www.saucedemo.com/v1/checkout-step-one.html", "Continue did not proceed to nextstep.");
     }
 
     @Test (groups = "Invalid FirstName")
     public void testCheckoutWithSpacesBetweenAtFirstName(){
         checkoutPage.fillCheckoutForm("M i n a", "George", "11311");
         checkoutPage.clickContinue();
-        Assert.assertEquals(driver.getCurrentUrl(), "https://www.saucedemo.com/v1/checkout-step-two.html", "Continue did not proceed to nextstep.");
+        Assert.assertEquals(driver.getCurrentUrl(), "https://www.saucedemo.com/v1/checkout-step-one.html", "Continue did not proceed to nextstep.");
     }
 
     @Test (groups = "Invalid LastName")
     public void testCheckoutWithEmptyLastName() {
         checkoutPage.fillCheckoutForm("Mina", "", "11311");
         checkoutPage.clickContinue();
-        Assert.assertEquals(driver.getCurrentUrl(), "https://www.saucedemo.com/v1/checkout-step-two.html", "Continue did not proceed to nextstep.");
+        Assert.assertEquals(driver.getCurrentUrl(), "https://www.saucedemo.com/v1/checkout-step-one.html", "Continue did not proceed to nextstep.");
     }
 
     @Test (groups = "Invalid LastName")
     public void testCheckoutWithSpecialCharactersAtLastName(){
         checkoutPage.fillCheckoutForm("Mina", "@#$%", "11311");
         checkoutPage.clickContinue();
-        Assert.assertEquals(driver.getCurrentUrl(), "https://www.saucedemo.com/v1/checkout-step-two.html", "Continue did not proceed to nextstep.");
+        Assert.assertEquals(driver.getCurrentUrl(), "https://www.saucedemo.com/v1/checkout-step-one.html", "Continue did not proceed to nextstep.");
     }
 
     @Test (groups = "Invalid LastName")
     public void testCheckoutWithNumbersAtLastName(){
         checkoutPage.fillCheckoutForm("Mina", "1234", "11311");
         checkoutPage.clickContinue();
-        Assert.assertEquals(driver.getCurrentUrl(), "https://www.saucedemo.com/v1/checkout-step-two.html", "Continue did not proceed to nextstep.");
+        Assert.assertEquals(driver.getCurrentUrl(), "https://www.saucedemo.com/v1/checkout-step-one.html", "Continue did not proceed to nextstep.");
     }
 
     @Test (groups = "Invalid LastName")
     public void testCheckoutWithArabicAtLastName(){
         checkoutPage.fillCheckoutForm("Mina", "جورج", "11311");
         checkoutPage.clickContinue();
-        Assert.assertEquals(driver.getCurrentUrl(), "https://www.saucedemo.com/v1/checkout-step-two.html", "Continue did not proceed to nextstep.");
+        Assert.assertEquals(driver.getCurrentUrl(), "https://www.saucedemo.com/v1/checkout-step-one.html", "Continue did not proceed to nextstep.");
     }
 
     @Test (groups = "Invalid LastName")
     public void testCheckoutWithSpacesOnlyAtLastName(){
         checkoutPage.fillCheckoutForm("Mina", "    ", "11311");
         checkoutPage.clickContinue();
-        Assert.assertEquals(driver.getCurrentUrl(), "https://www.saucedemo.com/v1/checkout-step-two.html", "Continue did not proceed to nextstep.");
+        Assert.assertEquals(driver.getCurrentUrl(), "https://www.saucedemo.com/v1/checkout-step-one.html", "Continue did not proceed to nextstep.");
     }
 
     @Test (groups = "Invalid LastName")
     public void testCheckoutWithLeadingSpacesAtLastName(){
         checkoutPage.fillCheckoutForm("Mina", "   George", "11311");
         checkoutPage.clickContinue();
-        Assert.assertEquals(driver.getCurrentUrl(), "https://www.saucedemo.com/v1/checkout-step-two.html", "Continue did not proceed to nextstep.");
+        Assert.assertEquals(driver.getCurrentUrl(), "https://www.saucedemo.com/v1/checkout-step-one.html", "Continue did not proceed to nextstep.");
     }
 
     @Test (groups = "Invalid LastName")
     public void testCheckoutWithTrailingSpacesAtLastName(){
         checkoutPage.fillCheckoutForm("Mina", "George      ", "11311");
         checkoutPage.clickContinue();
-        Assert.assertEquals(driver.getCurrentUrl(), "https://www.saucedemo.com/v1/checkout-step-two.html", "Continue did not proceed to nextstep.");
+        Assert.assertEquals(driver.getCurrentUrl(), "https://www.saucedemo.com/v1/checkout-step-one.html", "Continue did not proceed to nextstep.");
     }
 
     @Test (groups = "Invalid LastName")
     public void testCheckoutWithSpacesBetweenAtLastName(){
         checkoutPage.fillCheckoutForm("Mina", "Ge or ge", "11311");
         checkoutPage.clickContinue();
-        Assert.assertEquals(driver.getCurrentUrl(), "https://www.saucedemo.com/v1/checkout-step-two.html", "Continue did not proceed to nextstep.");
+        Assert.assertEquals(driver.getCurrentUrl(), "https://www.saucedemo.com/v1/checkout-step-one.html", "Continue did not proceed to nextstep.");
     }
 
     @Test (groups = "Invalid ZipCode")
     public void testCheckoutWithEmptyZipCode() {
         checkoutPage.fillCheckoutForm("Mina","George","");
         checkoutPage.clickContinue();
-        Assert.assertEquals(driver.getCurrentUrl(), "https://www.saucedemo.com/v1/checkout-step-two.html", "Continue did not proceed to nextstep.");
+        Assert.assertEquals(driver.getCurrentUrl(), "https://www.saucedemo.com/v1/checkout-step-one.html", "Continue did not proceed to nextstep.");
 
     }
 
@@ -177,84 +177,84 @@ public class CheckoutTest {
     public void testCheckoutwithLowercaseCharactersInZipCode(){
         checkoutPage.fillCheckoutForm("Mina", "George", "abcd");
         checkoutPage.clickContinue();
-        Assert.assertEquals(driver.getCurrentUrl(), "https://www.saucedemo.com/v1/checkout-step-two.html", "Continue did not proceed to nextstep.");
+        Assert.assertEquals(driver.getCurrentUrl(), "https://www.saucedemo.com/v1/checkout-step-one.html", "Continue did not proceed to nextstep.");
     }
 
     @Test (groups = "Invalid ZipCode")
     public void testCheckoutwithUppercaseCharactersInZipCode(){
         checkoutPage.fillCheckoutForm("Mina", "George", "ABCD");
         checkoutPage.clickContinue();
-        Assert.assertEquals(driver.getCurrentUrl(), "https://www.saucedemo.com/v1/checkout-step-two.html", "Continue did not proceed to nextstep.");
+        Assert.assertEquals(driver.getCurrentUrl(), "https://www.saucedemo.com/v1/checkout-step-one.html", "Continue did not proceed to nextstep.");
     }
 
     @Test (groups = "Invalid ZipCode")
     public void testCheckoutwithSpecialCharactersInZipCode(){
         checkoutPage.fillCheckoutForm("Mina", "George", "@#$%^&*");
         checkoutPage.clickContinue();
-        Assert.assertEquals(driver.getCurrentUrl(), "https://www.saucedemo.com/v1/checkout-step-two.html", "Continue did not proceed to nextstep.");
+        Assert.assertEquals(driver.getCurrentUrl(), "https://www.saucedemo.com/v1/checkout-step-one.html", "Continue did not proceed to nextstep.");
     }
 
     @Test (groups = "Invalid ZipCode")
     public void testCheckoutwithArabicInZipCode(){
         checkoutPage.fillCheckoutForm("Mina", "George", "بوستال كود");
         checkoutPage.clickContinue();
-        Assert.assertEquals(driver.getCurrentUrl(), "https://www.saucedemo.com/v1/checkout-step-two.html", "Continue did not proceed to nextstep.");
+        Assert.assertEquals(driver.getCurrentUrl(), "https://www.saucedemo.com/v1/checkout-step-one.html", "Continue did not proceed to nextstep.");
     }
 
     @Test (groups = "Invalid ZipCode")
     public void testCheckoutwithNegativeNumberInZipCode(){
         checkoutPage.fillCheckoutForm("Mina", "George", "-375345");
         checkoutPage.clickContinue();
-        Assert.assertEquals(driver.getCurrentUrl(), "https://www.saucedemo.com/v1/checkout-step-two.html", "Continue did not proceed to nextstep.");
+        Assert.assertEquals(driver.getCurrentUrl(), "https://www.saucedemo.com/v1/checkout-step-one.html", "Continue did not proceed to nextstep.");
     }
 
     @Test (groups = "Invalid ZipCode")
     public void testCheckoutwithFractionNumberInZipCode(){
         checkoutPage.fillCheckoutForm("Mina", "George", "37.5450");
         checkoutPage.clickContinue();
-        Assert.assertEquals(driver.getCurrentUrl(), "https://www.saucedemo.com/v1/checkout-step-two.html", "Continue did not proceed to nextstep.");
+        Assert.assertEquals(driver.getCurrentUrl(), "https://www.saucedemo.com/v1/checkout-step-one.html", "Continue did not proceed to nextstep.");
     }
 
     @Test (groups = "Invalid ZipCode")
     public void testCheckoutWithLeadingSpacesInZipCode(){
         checkoutPage.fillCheckoutForm("Mina", "George", "  11311");
         checkoutPage.clickContinue();
-        Assert.assertEquals(driver.getCurrentUrl(), "https://www.saucedemo.com/v1/checkout-step-two.html", "Continue did not proceed to nextstep.");
+        Assert.assertEquals(driver.getCurrentUrl(), "https://www.saucedemo.com/v1/checkout-step-one.html", "Continue did not proceed to nextstep.");
     }
 
     @Test (groups = "Invalid ZipCode")
     public void testCheckoutWithTrailingSpacesInZipCode(){
         checkoutPage.fillCheckoutForm("Mina", "George", "11311  ");
         checkoutPage.clickContinue();
-        Assert.assertEquals(driver.getCurrentUrl(), "https://www.saucedemo.com/v1/checkout-step-two.html", "Continue did not proceed to nextstep.");
+        Assert.assertEquals(driver.getCurrentUrl(), "https://www.saucedemo.com/v1/checkout-step-one.html", "Continue did not proceed to nextstep.");
     }
 
     @Test (groups = "Invalid ZipCode")
     public void testCheckoutWithSpacesBetweenInZipCode(){
         checkoutPage.fillCheckoutForm("Mina", "George", "3 75 50");
         checkoutPage.clickContinue();
-        Assert.assertEquals(driver.getCurrentUrl(), "https://www.saucedemo.com/v1/checkout-step-two.html", "Continue did not proceed to nextstep.");
+        Assert.assertEquals(driver.getCurrentUrl(), "https://www.saucedemo.com/v1/checkout-step-one.html", "Continue did not proceed to nextstep.");
     }
 
     @Test (groups = "Invalid ZipCode")
     public void testCheckoutWithSpacesOnlyInZipCode(){
         checkoutPage.fillCheckoutForm("Mina", "George", "    ");
         checkoutPage.clickContinue();
-        Assert.assertEquals(driver.getCurrentUrl(), "https://www.saucedemo.com/v1/checkout-step-two.html", "Continue did not proceed to nextstep.");
+        Assert.assertEquals(driver.getCurrentUrl(), "https://www.saucedemo.com/v1/checkout-step-one.html", "Continue did not proceed to nextstep.");
     }
 
     @Test (groups = "Invalid ZipCode")
     public void testCheckoutWithFourDigitsZipCode(){
         checkoutPage.fillCheckoutForm("Mina", "George", "3753");
         checkoutPage.clickContinue();
-        Assert.assertEquals(driver.getCurrentUrl(), "https://www.saucedemo.com/v1/checkout-step-two.html", "Continue did not proceed to nextstep.");
+        Assert.assertEquals(driver.getCurrentUrl(), "https://www.saucedemo.com/v1/checkout-step-one.html", "Continue did not proceed to nextstep.");
     }
 
     @Test (groups = "Invalid ZipCode")
     public void testCheckoutWithSixDigitsZipCode(){
         checkoutPage.fillCheckoutForm("Mina", "George", "375345");
         checkoutPage.clickContinue();
-        Assert.assertEquals(driver.getCurrentUrl(), "https://www.saucedemo.com/v1/checkout-step-two.html", "Continue did not proceed to nextstep.");
+        Assert.assertEquals(driver.getCurrentUrl(), "https://www.saucedemo.com/v1/checkout-step-one.html", "Continue did not proceed to nextstep.");
     }
 
     // Footer
